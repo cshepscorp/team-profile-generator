@@ -4,7 +4,7 @@ const Manager = require('../lib/Manager');
 const fs = require('fs');
 
 const generateEmployeeCards = employeeArr => {
-    // officeNumber = manager.getOffice();
+
     return `
 
         ${employeeArr
