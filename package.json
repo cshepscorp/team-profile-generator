@@ -1,0 +1,32 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cshepscorp/team-profile-generator.git"
+  },
+  "keywords": [
+    "node.js",
+    "inquirer"
+  ],
+  "author": "Christina Sheppard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cshepscorp/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/cshepscorp/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}

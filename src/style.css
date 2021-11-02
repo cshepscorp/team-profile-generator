@@ -1,0 +1,14 @@
+h2 {
+    font-size: 26px;
+}
+
+h3 {
+    font-size: .8rem;
+}
+.jumbotron {
+    text-align: center;;
+}
+.employee-card {
+    width: 18rem;
+    margin: 1%;
+}
