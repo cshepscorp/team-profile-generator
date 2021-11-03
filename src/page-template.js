@@ -3,10 +3,8 @@ const Intern = require('../lib/Intern');
 const Manager = require('../lib/Manager');
 const fs = require('fs');
 
-let engineerCreated;
-let internCreated;
-
 const generateManagerCards = employeeArr => {
+
   return `
       ${employeeArr
         .filter(({ officeNumber }) => officeNumber)
@@ -31,6 +29,7 @@ const generateManagerCards = employeeArr => {
         .join('')}
   `;
 };
+
 const generateEngineerCards = employeeArr => {
   return `
   ${employeeArr
