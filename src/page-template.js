@@ -114,18 +114,3 @@ module.exports = templateData => {
     </html>
     `;
   };
-
-
-// function engineerCreatedCard() {
-//   if (github) {
-//     return engineerCreated = generateEngineerCards(engineers);
-//   }
-// }
-// function internCreatedCard() {
-//   if (school) {
-//     return internCreated = generateInternCards(interns);
-//   }
-// }
-
-// engineerCreatedCard();
-// internCreatedCard();
