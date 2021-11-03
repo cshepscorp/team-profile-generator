@@ -184,7 +184,6 @@ const createEngineer = engineerData => {
         ])
         // push team member into an array
         .then(engineerData => {
-            // const engineer = 
             teamMemberArr.engineers.push(new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github));
             console.log(teamMemberArr.engineers);
             console.log(teamMemberArr);
@@ -257,7 +256,6 @@ const createIntern = internData => {
         ])
         // push team member into an array
         .then(internData => {
-            // const engineer = 
             teamMemberArr.interns.push(new Intern(internData.name, internData.id, internData.email, internData.school));
             console.log(teamMemberArr.interns);
             console.log(teamMemberArr);
