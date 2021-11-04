@@ -27,7 +27,7 @@
 
   <a name="usage"></a>
   ## Usage
-  ![Screenshot of App Functionality](/assets/images/screenshot-readme-generator.jpg)
+  ![Screenshot of App Functionality](/assets/images/cli-output.jpg)
   
   
   <a name="license"></a>
