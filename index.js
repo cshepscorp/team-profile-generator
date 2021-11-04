@@ -82,9 +82,10 @@ const promptManager = managerData => {
       ])
       .then(managerData => {
         // team manager’s name, employee ID, email address, and office number
-        teamMemberArr.managers.push(new Manager(managerData.name, managerData.id, managerData.email, managerData.officeNumber));
+        teamMemberArr.managers.push(new Manager(managerData.name, managerData.id, managerData.email, managerData.officeNumber, managerData.role));
         console.log(teamMemberArr.managers);
         console.log(teamMemberArr);
+        promptManagerNext();
       });
 };
 
@@ -184,7 +185,7 @@ const createEngineer = engineerData => {
         ])
         // push team member into an array
         .then(engineerData => {
-            teamMemberArr.engineers.push(new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github));
+            teamMemberArr.engineers.push(new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github, engineerData.role));
             console.log(teamMemberArr.engineers);
             console.log(teamMemberArr);
             promptManagerNext();
@@ -256,7 +257,7 @@ const createIntern = internData => {
         ])
         // push team member into an array
         .then(internData => {
-            teamMemberArr.interns.push(new Intern(internData.name, internData.id, internData.email, internData.school));
+            teamMemberArr.interns.push(new Intern(internData.name, internData.id, internData.email, internData.school, internData.role));
             console.log(teamMemberArr.interns);
             console.log(teamMemberArr);
             promptManagerNext();
@@ -268,18 +269,19 @@ function generateTeam() {
     console.log(`writeToFile function executed`);
 
 };
+promptManager();
 
-promptManager()
-         .then(promptManagerNext)
-//     // .then(teamMemberArr => {
-//     //     // finished portfolio data object is returned as portfolioData
-//     //     // and sent into the generatePage() function
-//     //     return generatePage(teamMemberArr);
-//     // })
+// promptManager()
+//          .then(promptManagerNext)
+// //     // .then(teamMemberArr => {
+// //     //     // finished portfolio data object is returned as portfolioData
+// //     //     // and sent into the generatePage() function
+// //     //     return generatePage(teamMemberArr);
+// //     // })
 
-    .catch(err => {
-        console.log(err);
-});
+//     .catch(err => {
+//         console.log(err);
+// });
 
 function writeToFile(filename, data) {
     fs.writeFile(filename, data, (err) => {

@@ -4,17 +4,15 @@ const Manager = require('../lib/Manager');
 const fs = require('fs');
 
 const generateManagerCards = employeeArr => {
-
   return `
       ${employeeArr
-        .filter(({ officeNumber }) => officeNumber)
-        .map(({ name, id, email, officeNumber }) => {
+        .map(({ name, id, email, officeNumber, role }) => {
           
           return `
           <div class="card employee-card">
               <div class="card-header">
                 <h2 class="card-title">${name}</h2>
-                <h3 class="card-subtitle mb-2 text-muted"><i class="fas fa-mug-hot"></i> Manager</h3>
+                <h3 class="card-subtitle mb-2 text-muted"><i class="fas fa-mug-hot"></i> ${role}</h3>
               </div>
               <div class="card-body">
                   <ul class="list-group">
@@ -33,19 +31,18 @@ const generateManagerCards = employeeArr => {
 const generateEngineerCards = employeeArr => {
   return `
   ${employeeArr
-      .filter(({ github }) => github)
-      .map(({ name, id, email, github }) => {
+      .map(({ name, id, email, github, role }) => {
         return `
         <div class="card employee-card">
           <div class="card-header">
           <h2 class="card-title">${name}</h2>
-          <h3 class="card-subtitle mb-2 text-muted"><i class="fas fa-glasses"></i> Engineer</h3>
+          <h3 class="card-subtitle mb-2 text-muted"><i class="fas fa-glasses"></i> ${role}</h3>
           </div>
           <div class="card-body">
               <ul class="list-group">
                   <li class="list-group-item">ID: ${id}</li>
                   <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-                  <li class="list-group-item"><a href="https://github.com/${github}" target="_blank">Find me on GitHub: ${github}</a></li>
+                  <li class="list-group-item"><a href="https://github.com/${github}">Find me on GitHub: ${github}</a></li>
               </ul>
           </div>
       </div>
@@ -55,16 +52,14 @@ const generateEngineerCards = employeeArr => {
   `;
 };
 const generateInternCards = employeeArr => {
-
   return `
   ${employeeArr
-      .filter(({ school }) => school)
-      .map(({ name, id, email, school }) => {
+      .map(({ name, id, email, school, role }) => {
         return `
         <div class="card employee-card">
           <div class="card-header">
               <h2 class="card-title">${name}</h2>
-              <h3 class="card-subtitle mb-2 text-muted"><i class="fas fa-user"></i> Intern</h3>
+              <h3 class="card-subtitle mb-2 text-muted"><i class="fas fa-user"></i> ${role}</h3>
           </div>
           <div class="card-body">
               <ul class="list-group">
@@ -78,11 +73,36 @@ const generateInternCards = employeeArr => {
       })
       .join('')}
   `;
+  
 };
   
 module.exports = templateData => {
     // destructure page data by section
-    const { managers, engineers, interns } = templateData;
+    let { managers, engineers, interns } = templateData;
+    //console.log(managers);console.log(engineers);console.log(interns);
+
+    // if at least 1 engineer and 1 intern was entered; generate all cards
+    if (engineers && interns) {
+      showCards =  `${generateManagerCards(managers)}
+      ${generateEngineerCards(engineers)}
+      ${generateInternCards(interns)}`
+    }
+    // if at least 1 engineer and 0 intern was entered; generate manager and engineer cards only
+    if (engineers && !interns) {
+      showCards =  `${generateManagerCards(managers)}
+      ${generateEngineerCards(engineers)}
+`
+    }
+    // if at least 1 intern and 0 engineers was entered; generate manager and intern cards only
+    if (!engineers && interns) {
+      showCards =  `${generateManagerCards(managers)}
+      ${generateInternCards(interns)}`
+    }
+    // if neither engineer or intern was entered; generate manager card only
+    if (!engineers && !interns) {
+      showCards =  `${generateManagerCards(managers)}`
+    }
+    
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -103,10 +123,7 @@ module.exports = templateData => {
       <div class="container">
         <div class="row">
             <div class="team-area col-12 d-flex justify-content-center">
-                ${generateManagerCards(managers)}
-                ${generateEngineerCards(engineers)}
-                ${generateInternCards(interns)}
-
+                ${showCards}
             </div>
         </div>
       </div>
