@@ -45,7 +45,7 @@ const generateEngineerCards = employeeArr => {
               <ul class="list-group">
                   <li class="list-group-item">ID: ${id}</li>
                   <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-                  <li class="list-group-item"><a href="https://github.com/${github}">Find me on GitHub: ${github}</a></li>
+                  <li class="list-group-item"><a href="https://github.com/${github}" target="_blank">Find me on GitHub: ${github}</a></li>
               </ul>
           </div>
       </div>
@@ -55,7 +55,7 @@ const generateEngineerCards = employeeArr => {
   `;
 };
 const generateInternCards = employeeArr => {
-  
+
   return `
   ${employeeArr
       .filter(({ school }) => school)
