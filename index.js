@@ -15,7 +15,6 @@ const teamMemberArr = [];
 
 // prompt manager with questions about themselves
 const promptManager = managerData => {
-    // team manager’s name, employee ID, email address, and office number
     console.log(`
     =======================
     All fields are required
@@ -33,7 +32,7 @@ const promptManager = managerData => {
             if (nameInput) {
               return true;
             } else {
-              console.log('Please enter your name!');
+              console.log('Please enter your name');
               return false;
             }
           }
@@ -41,12 +40,12 @@ const promptManager = managerData => {
         {
             type: 'input',
             name: 'id',
-            message: 'What is your employee ID?',
+            message: 'What is your employee ID number?',
             validate: idInput => {
               if (idInput) {
                 return true;
               } else {
-                console.log('Please enter your employee ID!');
+                console.log('Please enter a valid employee ID');
                 return false;
               }
             }
@@ -112,7 +111,6 @@ const promptManagerNext = () => {
             // generate the team
                 generateTeam();
                 // console.log(teamMemberArr);
-                // writeToFile('dist/index.html', generatePage(teamMemberArr));
                 break;
         }
       });
@@ -164,7 +162,7 @@ const createEngineer = engineerData => {
               if (idInput) {
                 return true;
               } else {
-                console.log('Please enter a valid employee ID!');
+                console.log('Please enter a valid employee ID');
                 return false;
               }
             }
@@ -173,14 +171,15 @@ const createEngineer = engineerData => {
             type: 'input',
             name: 'email',
             message: 'What is their email address?',
-            validate: emailInput => {
-              if (emailInput) {
-                return true;
-              } else {
-                console.log('Please enter their email address');
-                return false;
-              }
-            }
+            // validate: email => {
+            //     valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+            //   if (valid) {
+            //     return true;
+            //   } else {
+            //     console.log('Please enter a valid email address');
+            //     return false;
+            //   }
+            // }
           }
         ])
         // push team member into an array
@@ -218,7 +217,7 @@ const createIntern = internData => {
         {
           type: 'input',
           name: 'school',
-          message: 'Enter their school',
+          message: 'What school does the intern attend?',
           validate: schoolInput => {
             if (schoolInput) {
               return true;
@@ -236,7 +235,7 @@ const createIntern = internData => {
               if (idInput) {
                 return true;
               } else {
-                console.log('Please enter a valid employee ID!');
+                console.log('Please enter a valid employee ID');
                 return false;
               }
             }
@@ -245,14 +244,15 @@ const createIntern = internData => {
             type: 'input',
             name: 'email',
             message: 'What is their email address?',
-            validate: emailInput => {
-              if (emailInput) {
-                return true;
-              } else {
-                console.log('Please enter their email address');
-                return false;
-              }
-            }
+            // validate: email => {
+            //     valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+            //   if (valid) {
+            //     return true;
+            //   } else {
+            //     console.log('Please enter a valid email address');
+            //     return false;
+            //   }
+            // }
           }
         ])
         // push team member into an array
@@ -264,24 +264,13 @@ const createIntern = internData => {
         });  
 };
 
-function generateTeam() {
-    writeToFile('dist/index.html', generatePage(teamMemberArr));
-    console.log(`writeToFile function executed`);
-
-};
 promptManager();
 
-// promptManager()
-//          .then(promptManagerNext)
-// //     // .then(teamMemberArr => {
-// //     //     // finished portfolio data object is returned as portfolioData
-// //     //     // and sent into the generatePage() function
-// //     //     return generatePage(teamMemberArr);
-// //     // })
+function generateTeam() {
+  writeToFile('dist/index.html', generatePage(teamMemberArr));
+  console.log(`writeToFile function executed`);
 
-//     .catch(err => {
-//         console.log(err);
-// });
+};
 
 function writeToFile(filename, data) {
     fs.writeFile(filename, data, (err) => {
@@ -300,7 +289,6 @@ const copyFile = () => {
           // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
           return;
         }
-  
         // if everything went well, resolve the Promise and send the successful data to the `.then()` method
         resolve({
           ok: true,
