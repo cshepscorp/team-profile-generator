@@ -54,15 +54,15 @@ const promptManager = managerData => {
             type: 'input',
             name: 'email',
             message: 'What is your email address?',
-            // validate: email => {
-            //     valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-            //   if (valid) {
-            //     return true;
-            //   } else {
-            //     console.log('Please enter a email address');
-            //     return false;
-            //   }
-            // }
+            validate: email => {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+              if (valid) {
+                return true;
+              } else {
+                console.log('Please enter a email address');
+                return false;
+              }
+            }
           },
         {
           type: 'input',
@@ -82,14 +82,13 @@ const promptManager = managerData => {
       .then(managerData => {
         // team manager’s name, employee ID, email address, and office number
         teamMemberArr.managers.push(new Manager(managerData.name, managerData.id, managerData.email, managerData.officeNumber, managerData.role));
-        console.log(teamMemberArr.managers);
+        // console.log(teamMemberArr.managers);
         console.log(teamMemberArr);
         promptManagerNext();
       });
 };
 
 const promptManagerNext = () => {
-    
     return inquirer.prompt([
         {
             type: 'list',
@@ -106,11 +105,9 @@ const promptManagerNext = () => {
             case 'Intern':
                 createIntern();
                 break;
-            //case 'My team is complete':
             default:
             // generate the team
                 generateTeam();
-                // console.log(teamMemberArr);
                 break;
         }
       });
@@ -171,21 +168,21 @@ const createEngineer = engineerData => {
             type: 'input',
             name: 'email',
             message: 'What is their email address?',
-            // validate: email => {
-            //     valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-            //   if (valid) {
-            //     return true;
-            //   } else {
-            //     console.log('Please enter a valid email address');
-            //     return false;
-            //   }
-            // }
+            validate: email => {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+              if (valid) {
+                return true;
+              } else {
+                console.log('Please enter a valid email address');
+                return false;
+              }
+            }
           }
         ])
         // push team member into an array
         .then(engineerData => {
             teamMemberArr.engineers.push(new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github, engineerData.role));
-            console.log(teamMemberArr.engineers);
+            // console.log(teamMemberArr.engineers);
             console.log(teamMemberArr);
             promptManagerNext();
         });  
@@ -244,21 +241,21 @@ const createIntern = internData => {
             type: 'input',
             name: 'email',
             message: 'What is their email address?',
-            // validate: email => {
-            //     valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-            //   if (valid) {
-            //     return true;
-            //   } else {
-            //     console.log('Please enter a valid email address');
-            //     return false;
-            //   }
-            // }
+            validate: email => {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+              if (valid) {
+                return true;
+              } else {
+                console.log('Please enter a valid email address');
+                return false;
+              }
+            }
           }
         ])
         // push team member into an array
         .then(internData => {
             teamMemberArr.interns.push(new Intern(internData.name, internData.id, internData.email, internData.school, internData.role));
-            console.log(teamMemberArr.interns);
+            // console.log(teamMemberArr.interns);
             console.log(teamMemberArr);
             promptManagerNext();
         });  
