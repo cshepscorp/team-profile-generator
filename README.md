@@ -6,6 +6,7 @@
   * [ Description ](#about)
   * [ Installation ](#installation)
   * [ Usage ](#usage)
+  * [ Tech ](#tech)
   * [ License ](#license)
   * [ Badges ](#badges)
   
@@ -28,6 +29,11 @@
   ## Usage
   ![Screenshot of App Functionality](/assets/images/cli-output.jpg)
   
+  <a name="tech"></a>
+  ## Technologies Used
+  * Node.js
+  * Inquirer
+  * Jest
   
   <a name="license"></a>
   ## License
