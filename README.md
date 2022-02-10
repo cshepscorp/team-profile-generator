@@ -1,6 +1,8 @@
 
   
   # Team Profile Generator ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+  
+  ![Screenshot of App Functionality](/assets/images/cli-output.jpg)
 
   ## Table of Contents
   * [ Description ](#about)
@@ -23,11 +25,12 @@
   1. If you don't already have Node.js installed, [click here to download Node.js on your machine.](https://nodejs.org/en/)
   2. Once you have Node.js successfully installed, copy the code link from this repo and use the `git clone https://github.com/cshepscorp/team-profile-generator.git` command to clone this repo into the folder of your choice on your machine. 
   3. In order to run this application, you'll need to install a few npm packages/modules. Enter `npm install` in your command line to install these.
-  4. Enter `node index.js` in your command line to run the generator.  Then fill out the questions as prompted. Your finished index.html file will be generated and can be found in the **dist/** folder. 
+  4. Enter `node index.js` in your command line to run the generator.  
 
   <a name="usage"></a>
   ## Usage
-  ![Screenshot of App Functionality](/assets/images/cli-output.jpg)
+  Fill out the questions as prompted. Your finished index.html file will be generated and can be found in the **dist/** folder. 
+  
   
   <a name="tech"></a>
   ## Technologies Used
